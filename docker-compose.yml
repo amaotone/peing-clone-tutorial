@@ -1,0 +1,9 @@
+version: "3"
+services:
+  server:
+    build: . # 同じフォルダにあるDockerfileを利用
+    ports:
+      - "5000:5000" # ローカルの5000番ポートとdockerの5000番ポートを接続
+    volumes:
+      - ./app:/usr/src/app # appフォルダをdocker上の/usr/src/appにマウント
+    command: "python app.py" # dockerが立ち上がったらこれを実行
